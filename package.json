@@ -2,6 +2,7 @@
     "name": "Replayify",
     "version": "1.0.0",
     "private": true,
+    "homepage": "http://palampinen.github.io/replayify",
     "dependencies": {
         "autobind-decorator": "^2.1.0",
         "axios": "^0.18.0",
@@ -34,6 +35,11 @@
         "build-js": "react-scripts build",
         "build": "npm-run-all build-css build-js",
         "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
+    },
+    "devDependencies": {
+        "gh-pages": "^1.2.0"
     }
 }
