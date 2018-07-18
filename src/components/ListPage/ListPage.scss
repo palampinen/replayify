@@ -70,7 +70,8 @@
     position: relative;
 
     margin: 0 auto;
-    padding: 300px 1.5em 2em;
+    padding: 400px 1.5em 2em;
+    padding: calc(55vh - 100px) 1.5em 2em;
   }
 
   .list-page__title {
@@ -79,6 +80,7 @@
 
   .list-page__image {
     height: 500px;
+    height: 55vh;
     position: absolute;
     animation: none;
   }

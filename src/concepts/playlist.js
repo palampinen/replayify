@@ -7,6 +7,7 @@ import { get, isNil, flatten, shuffle } from 'lodash';
 import { getUser } from './user';
 import { fetchTopArtistsTopTracks, getTopTracksUris } from './top-history';
 import { getRecentlyPlayedUris } from './play-history';
+import { openPlaylistPopup } from './playlist-popup';
 import { apiCall } from '../services/api';
 
 // # Action Types
@@ -76,7 +77,7 @@ export const createTopArtistPlaylist = () => (dispatch, getState) => {
     .then(() =>
       dispatch(
         createPlaylist({
-          name: 'My Top-20 Artists',
+          name: 'Replay Top-20 Artists',
           description: 'Top-5 tracks from each of my Top-20 artists.',
         })
       )
@@ -90,8 +91,8 @@ export const createTopArtistPlaylist = () => (dispatch, getState) => {
         return null;
       }
 
-      dispatch(addTracksToPlayList(playlistId, tracks)).then(
-        () => (window.location.href = playlistUri)
+      dispatch(addTracksToPlayList(playlistId, tracks)).then(() =>
+        dispatch(openPlaylistPopup(playlistUri))
       );
     });
 };
@@ -105,7 +106,7 @@ export const createTopTracksPlaylist = () => (dispatch, getState) => {
 
   return dispatch(
     createPlaylist({
-      name: 'My Top-50 Tracks',
+      name: 'Replay Top-50 Tracks',
     })
   ).then(response => {
     const playlist = get(response, 'payload.data');
@@ -116,16 +117,14 @@ export const createTopTracksPlaylist = () => (dispatch, getState) => {
       return null;
     }
 
-    dispatch(addTracksToPlayList(playlistId, tracks.toJS())).then(
-      () => (window.location.href = playlistUri)
+    dispatch(addTracksToPlayList(playlistId, tracks.toJS())).then(() =>
+      dispatch(openPlaylistPopup(playlistUri))
     );
   });
 };
 
 export const createRecentlyPlayedPlaylist = () => (dispatch, getState) => {
   const tracks = getRecentlyPlayedUris(getState());
-
-  console.log(tracks);
 
   if (!tracks.size) {
     return;
@@ -135,7 +134,7 @@ export const createRecentlyPlayedPlaylist = () => (dispatch, getState) => {
 
   return dispatch(
     createPlaylist({
-      name: `Last 50 Tracks - ${today.format('MMMM YYYY')}`,
+      name: `Replay 50 Tracks - ${today.format('MMMM YYYY')}`,
     })
   ).then(response => {
     const playlist = get(response, 'payload.data');
@@ -146,8 +145,8 @@ export const createRecentlyPlayedPlaylist = () => (dispatch, getState) => {
       return null;
     }
 
-    dispatch(addTracksToPlayList(playlistId, tracks.toJS())).then(
-      () => (window.location.href = playlistUri)
+    dispatch(addTracksToPlayList(playlistId, tracks.toJS())).then(() =>
+      dispatch(openPlaylistPopup(playlistUri))
     );
   });
 };

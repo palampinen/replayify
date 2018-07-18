@@ -4,13 +4,15 @@ import { Route, Redirect } from 'react-router-dom';
 
 import {
   startAppView,
-  updateArtistsTimeRange,
-  updateTracksTimeRange,
   createArtistPlaylist,
   createTracksPlaylist,
   createRecentlyPlaylist,
   getAppViewData,
+  updateArtistsTimeRange,
+  updateTracksTimeRange,
+  updateRecentlyPlayed,
 } from '../../concepts/app-view';
+import PlaylistPopup from '../PlaylistPopup';
 import PlayHistory from '../../components/PlayHistory';
 import TopHistory from '../../components/TopHistory';
 import ScrollTopRoute from '../../components/ScrollTopRoute';
@@ -43,6 +45,8 @@ class AppView extends Component {
       <div className="App">
         <div className="App-container">
           <AppNavigation />
+
+          <PlaylistPopup />
 
           <div className="App-content">
             <Route exact path={`${match.url}`} render={() => <Redirect to="/top-artists" />} />
@@ -79,6 +83,7 @@ class AppView extends Component {
                 <PlayHistory
                   plays={playHistory}
                   createRecentlyPlaylist={this.props.createRecentlyPlaylist}
+                  updatePlayHistory={this.props.updateRecentlyPlayed}
                 />
               )}
             />
@@ -96,11 +101,12 @@ class AppView extends Component {
 const mapStateToProps = getAppViewData;
 const mapDispatchToProps = {
   startAppView,
-  updateArtistsTimeRange,
-  updateTracksTimeRange,
   createArtistPlaylist,
   createTracksPlaylist,
   createRecentlyPlaylist,
+  updateArtistsTimeRange,
+  updateTracksTimeRange,
+  updateRecentlyPlayed,
 };
 
 export default connect(

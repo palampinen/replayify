@@ -1,4 +1,7 @@
 // # App view concept
+//
+// This concept does not have reducer and it will work just as a combining
+// "view-concept" for "core-concepts"
 
 import { createStructuredSelector } from 'reselect';
 
@@ -33,10 +36,14 @@ export const startAppView = () => dispatch => {
   dispatch(checkLogin());
 
   dispatch(fetchUserProfile());
+  // this fetch is somewhat redundant since app is updating play history
+  // everytime playhistory is mounted. OTOH fetching this on start will
+  // speed up first rendering of view
   dispatch(fetchPlayHistory());
   dispatch(fetchTopHistory());
 };
 
+export const updateRecentlyPlayed = fetchPlayHistory;
 export const updateTimeRange = type => timeRange => dispatch => {
   dispatch(setTimeRange(type)(timeRange));
   dispatch(fetchTop(type)());

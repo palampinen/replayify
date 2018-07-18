@@ -42,6 +42,19 @@
   }
 }
 
+@mixin white-bg-button($color) {
+  &:hover,
+  &:focus,
+  &:active,
+  &:active:hover,
+  &:active:focus {
+    background-color: #fff;
+  }
+  &:active {
+    color: darken($color, 6%);
+  }
+}
+
 .btn {
   display: block;
   width: 100%;
@@ -66,19 +79,13 @@
 }
 
 .btn-primary {
-  @include button-theme($brand-pink, #fff, $brand-pink);
+  @include button-theme($brand-pink, #fff, #fff);
+  @include white-bg-button($brand-pink);
+}
 
-  // exception in button behavior
-  &:hover,
-  &:focus,
-  &:active,
-  &:active:hover,
-  &:active:focus {
-    background-color: #fff;
-  }
-  &:active {
-    color: darken($brand-pink, 6%);
-  }
+.btn-default {
+  @include button-theme($dark-grey, #fff, #fff);
+  @include white-bg-button($dark-grey);
 }
 
 .btn-secondary {
@@ -105,10 +112,23 @@
   margin-top: 1em;
 }
 
+.btn-inline {
+  & + & {
+    margin: 1.5em 0 0 0;
+  }
+}
+
 @media (min-width: $breakpoint-small) {
   .btn {
     width: auto;
     margin: 0 auto;
     font-size: 1.2em;
+  }
+
+  .btn-inline {
+    display: inline-block;
+    & + & {
+      margin: 0 0 0 1em;
+    }
   }
 }
