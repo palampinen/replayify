@@ -1,0 +1,68 @@
+@import 'styles/variables.scss';
+@import 'styles/animations.scss';
+
+.track-history__item {
+  padding: 1em 0.75em;
+  text-align: left;
+  font-size: 1.1em;
+  line-height: 1.2;
+  margin: 0 -1em;
+
+  display: flex;
+  align-items: center;
+  color: $dark-grey;
+
+  &:hover {
+    background: $light-grey;
+  }
+
+  transform: translate3d(0, -4px, 0);
+  opacity: 0;
+  animation-name: mic-drop;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+
+  @for $i from 1 through $animation-max-items {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * (100ms - ($i * 2ms)) + $animation-initial-delay;
+    }
+  }
+}
+
+.track__info {
+  display: flex;
+  align-items: center;
+  flex: 3;
+}
+
+.track__summary {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.track__separator {
+  display: none;
+}
+
+.track__artist {
+  white-space: nowrap;
+}
+
+.track__track-name {
+  color: $brand-dark;
+  margin-bottom: 0.2em;
+  font-weight: bold;
+}
+
+.track__time {
+  color: $mid-grey;
+  text-align: left;
+  flex: 1;
+}
+
+@media (min-width: $breakpoint-small) {
+  .track-history__item {
+    padding: 1em 1.5em;
+  }
+}

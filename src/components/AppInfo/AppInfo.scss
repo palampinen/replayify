@@ -1,0 +1,22 @@
+@import 'styles/variables.scss';
+@import 'styles/animations.scss';
+
+.app-info {
+  display: block;
+  max-width: $breakpoint-small * 0.8;
+  margin: 0 auto;
+
+  animation: mic-drop 0.75s;
+}
+
+.app-info__buttons {
+  margin: 2em 0;
+}
+
+.scope-list li {
+  font-weight: bold;
+}
+
+.app-info__logo {
+  text-align: left;
+}

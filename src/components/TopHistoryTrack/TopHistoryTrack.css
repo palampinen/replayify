@@ -1,0 +1,178 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
+
+@keyframes scaleX-in {
+  0% {
+    transform: scaleX(0); }
+  100% {
+    transform: scaleX(1); } }
+
+@keyframes scale-to {
+  0% {
+    transform: scale(1.015) translate3d(0, 0, 0); }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0); } }
+
+@keyframes mic-drop {
+  0% {
+    transform: translate3d(0, -4px, 0);
+    opacity: 0; }
+  100% {
+    transform: translate3d(0, 0px, 0);
+    opacity: 1; } }
+
+.track-history__item {
+  padding: 1em 0.75em;
+  text-align: left;
+  font-size: 1.1em;
+  line-height: 1.2;
+  margin: 0 -1em;
+  display: flex;
+  align-items: center;
+  color: #50496d;
+  transform: translate3d(0, -4px, 0);
+  opacity: 0;
+  animation-name: mic-drop;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-duration: 1s; }
+  .track-history__item:hover {
+    background: #fafafa; }
+  .track-history__item:nth-child(1) {
+    animation-delay: 198ms; }
+  .track-history__item:nth-child(2) {
+    animation-delay: 292ms; }
+  .track-history__item:nth-child(3) {
+    animation-delay: 382ms; }
+  .track-history__item:nth-child(4) {
+    animation-delay: 468ms; }
+  .track-history__item:nth-child(5) {
+    animation-delay: 550ms; }
+  .track-history__item:nth-child(6) {
+    animation-delay: 628ms; }
+  .track-history__item:nth-child(7) {
+    animation-delay: 702ms; }
+  .track-history__item:nth-child(8) {
+    animation-delay: 772ms; }
+  .track-history__item:nth-child(9) {
+    animation-delay: 838ms; }
+  .track-history__item:nth-child(10) {
+    animation-delay: 900ms; }
+  .track-history__item:nth-child(11) {
+    animation-delay: 958ms; }
+  .track-history__item:nth-child(12) {
+    animation-delay: 1012ms; }
+  .track-history__item:nth-child(13) {
+    animation-delay: 1062ms; }
+  .track-history__item:nth-child(14) {
+    animation-delay: 1108ms; }
+  .track-history__item:nth-child(15) {
+    animation-delay: 1150ms; }
+  .track-history__item:nth-child(16) {
+    animation-delay: 1188ms; }
+  .track-history__item:nth-child(17) {
+    animation-delay: 1222ms; }
+  .track-history__item:nth-child(18) {
+    animation-delay: 1252ms; }
+  .track-history__item:nth-child(19) {
+    animation-delay: 1278ms; }
+  .track-history__item:nth-child(20) {
+    animation-delay: 1300ms; }
+  .track-history__item:nth-child(21) {
+    animation-delay: 1318ms; }
+  .track-history__item:nth-child(22) {
+    animation-delay: 1332ms; }
+  .track-history__item:nth-child(23) {
+    animation-delay: 1342ms; }
+  .track-history__item:nth-child(24) {
+    animation-delay: 1348ms; }
+  .track-history__item:nth-child(25) {
+    animation-delay: 1350ms; }
+  .track-history__item:nth-child(26) {
+    animation-delay: 1348ms; }
+  .track-history__item:nth-child(27) {
+    animation-delay: 1342ms; }
+  .track-history__item:nth-child(28) {
+    animation-delay: 1332ms; }
+  .track-history__item:nth-child(29) {
+    animation-delay: 1318ms; }
+  .track-history__item:nth-child(30) {
+    animation-delay: 1300ms; }
+  .track-history__item:nth-child(31) {
+    animation-delay: 1278ms; }
+  .track-history__item:nth-child(32) {
+    animation-delay: 1252ms; }
+  .track-history__item:nth-child(33) {
+    animation-delay: 1222ms; }
+  .track-history__item:nth-child(34) {
+    animation-delay: 1188ms; }
+  .track-history__item:nth-child(35) {
+    animation-delay: 1150ms; }
+  .track-history__item:nth-child(36) {
+    animation-delay: 1108ms; }
+  .track-history__item:nth-child(37) {
+    animation-delay: 1062ms; }
+  .track-history__item:nth-child(38) {
+    animation-delay: 1012ms; }
+  .track-history__item:nth-child(39) {
+    animation-delay: 958ms; }
+  .track-history__item:nth-child(40) {
+    animation-delay: 900ms; }
+  .track-history__item:nth-child(41) {
+    animation-delay: 838ms; }
+  .track-history__item:nth-child(42) {
+    animation-delay: 772ms; }
+  .track-history__item:nth-child(43) {
+    animation-delay: 702ms; }
+  .track-history__item:nth-child(44) {
+    animation-delay: 628ms; }
+  .track-history__item:nth-child(45) {
+    animation-delay: 550ms; }
+  .track-history__item:nth-child(46) {
+    animation-delay: 468ms; }
+  .track-history__item:nth-child(47) {
+    animation-delay: 382ms; }
+  .track-history__item:nth-child(48) {
+    animation-delay: 292ms; }
+  .track-history__item:nth-child(49) {
+    animation-delay: 198ms; }
+  .track-history__item:nth-child(50) {
+    animation-delay: 100ms; }
+
+.track__info {
+  display: flex;
+  align-items: center;
+  flex: 3; }
+
+.track__summary {
+  display: flex;
+  flex-direction: column-reverse; }
+
+.track__separator {
+  display: none; }
+
+.track__artist {
+  white-space: nowrap; }
+
+.track__track-name {
+  color: #3a354e;
+  margin-bottom: 0.2em;
+  font-weight: bold; }
+
+.track__time {
+  color: #aba5c3;
+  text-align: left;
+  flex: 1; }
+
+@media (min-width: 769px) {
+  .track-history__item {
+    padding: 1em 1.5em; } }

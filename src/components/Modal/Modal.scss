@@ -1,0 +1,45 @@
+@import '../../styles/variables.scss';
+@import '../../styles/animations.scss';
+
+.modal {
+  animation: fade-in 0.15s;
+  background: rgba(#fff, 0.9);
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  overflow-y: auto;
+}
+
+.modal__content {
+  background: #fff;
+
+  position: absolute;
+  left: 0em;
+  right: 0em;
+  top: 0em;
+  bottom: 0em;
+  padding: 1.5em;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+@media (min-width: $breakpoint-medium) {
+  .modal {
+    align-items: center;
+  }
+
+  .modal__content {
+    position: static;
+    max-width: $breakpoint-small;
+    margin: 0 auto;
+  }
+}

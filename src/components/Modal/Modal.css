@@ -1,0 +1,64 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
+
+@keyframes scaleX-in {
+  0% {
+    transform: scaleX(0); }
+  100% {
+    transform: scaleX(1); } }
+
+@keyframes scale-to {
+  0% {
+    transform: scale(1.015) translate3d(0, 0, 0); }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0); } }
+
+@keyframes mic-drop {
+  0% {
+    transform: translate3d(0, -4px, 0);
+    opacity: 0; }
+  100% {
+    transform: translate3d(0, 0px, 0);
+    opacity: 1; } }
+
+.modal {
+  animation: fade-in 0.15s;
+  background: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto; }
+
+.modal__content {
+  background: #fff;
+  position: absolute;
+  left: 0em;
+  right: 0em;
+  top: 0em;
+  bottom: 0em;
+  padding: 1.5em;
+  overflow-y: auto;
+  border-radius: 10px; }
+
+@media (min-width: 1024px) {
+  .modal {
+    align-items: center; }
+  .modal__content {
+    position: static;
+    max-width: 769px;
+    margin: 0 auto; } }

@@ -1,0 +1,74 @@
+.login {
+  text-align: left;
+  padding: 0 2em;
+  background: #f9adac;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+.login__title {
+  color: #fff;
+  margin: 10vh 0 50vh;
+  padding: 0; }
+
+.login__app-icon {
+  display: none; }
+
+.login__content {
+  position: relative;
+  z-index: 2; }
+
+.login__background {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: url("../../assets/images/discover.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  opacity: 1; }
+
+.login__background__image {
+  width: 20vw;
+  height: 20vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+@media (min-width: 768px) {
+  .login__content {
+    max-width: 1024px;
+    margin: 0 auto; }
+  .login__app-icon {
+    position: absolute;
+    left: 20px;
+    top: 45px;
+    z-index: 99;
+    opacity: 0.9;
+    display: block;
+    color: #9ee2d9;
+    font-weight: 900; }
+    .login__app-icon img {
+      max-width: 60px; } }
+
+@media (max-width: 769px) and (orientation: landscape) {
+  .login__content {
+    margin: 0 auto; } }
+
+@media (min-width: 769px) and (orientation: landscape) {
+  .login__title {
+    color: #fff;
+    margin: 10vh 0 65vh; }
+  .btn-link {
+    text-align: center; } }

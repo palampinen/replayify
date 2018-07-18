@@ -1,0 +1,74 @@
+@import 'styles/variables.scss';
+@import 'styles/animations.scss';
+
+.play-history__item {
+  padding: 1em;
+  text-align: left;
+  font-size: 1.1em;
+  margin: 0 -1em;
+  max-width: $breakpoint-medium;
+
+  display: flex;
+  align-items: center;
+  color: $dark-grey;
+
+  &:hover {
+    background: $light-grey;
+  }
+
+  transform: translate3d(0, -4px, 0);
+  opacity: 0;
+  animation-name: mic-drop;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+
+  @for $i from 1 through $animation-max-items {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * (100ms - ($i * 2ms)) + $animation-initial-delay;
+    }
+  }
+}
+
+.play__info {
+  display: flex;
+  align-items: center;
+  flex: 3;
+}
+
+.play__summary {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.play__artist {
+}
+
+.play__separator {
+  color: #ddd;
+  margin: 0 0.5em;
+  display: none;
+}
+
+.play__track-name {
+  font-weight: bold;
+  color: $brand-dark;
+}
+
+.play__time {
+  color: $mid-grey;
+  text-align: right;
+  flex: 60px;
+  font-size: 11px;
+}
+
+@media (min-width: $breakpoint-small) {
+  .play-history__item {
+    padding: 1em 1.5em;
+  }
+  .play__time {
+    text-align: right;
+    flex: 100px 0 0;
+    font-size: 1em;
+  }
+}

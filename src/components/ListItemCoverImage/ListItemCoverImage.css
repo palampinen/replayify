@@ -1,0 +1,19 @@
+.track__cover {
+  width: 40px;
+  min-width: 40px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 1em;
+  background: #fafafa;
+  float: left;
+  flex: 40px 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%; }
+
+@media (min-width: 769px) {
+  .track__cover {
+    width: 50px;
+    min-width: 50px;
+    height: 64px;
+    flex: 50px 0 0; } }

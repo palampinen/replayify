@@ -1,0 +1,65 @@
+@import 'styles/variables.scss';
+@import 'styles/animations.scss';
+
+.time-range-selector {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+  margin: -1em -0.75em 1em;
+
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: auto;
+
+  .time-option {
+    color: $mid-grey;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    padding: 1em;
+    display: inline-block;
+    position: relative;
+    &:active {
+      color: $dark-grey;
+    }
+  }
+
+  .time--active {
+    // color: $mid-grey;
+    color: $dark-grey;
+
+    &:after {
+      position: absolute;
+      left: 1em;
+      right: 1em;
+      bottom: 0.6em;
+      content: '';
+      display: block;
+      height: 2px;
+      background: $dark-grey;
+      transform: scaleX(0);
+      animation: scaleX-in 0.2s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-small) {
+  .time-range-selector {
+    .time-option {
+      font-size: 1.2em;
+
+      &:hover {
+        color: $dark-grey;
+      }
+    }
+    .time--active {
+      &:after {
+        height: 3px;
+        bottom: 0.7em;
+      }
+    }
+  }
+}

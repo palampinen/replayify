@@ -1,0 +1,11 @@
+{
+  "root": "build/",
+  "headers": {
+    "/**": {
+      "Strict-Transport-Security": "max-age=15552000; includeSubDomains"
+    }
+  },
+  "routes": {
+    "/**": "index.html"
+  }
+}

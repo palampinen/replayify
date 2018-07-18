@@ -1,0 +1,75 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
+
+@keyframes scaleX-in {
+  0% {
+    transform: scaleX(0); }
+  100% {
+    transform: scaleX(1); } }
+
+@keyframes scale-to {
+  0% {
+    transform: scale(1.015) translate3d(0, 0, 0); }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0); } }
+
+@keyframes mic-drop {
+  0% {
+    transform: translate3d(0, -4px, 0);
+    opacity: 0; }
+  100% {
+    transform: translate3d(0, 0px, 0);
+    opacity: 1; } }
+
+.time-range-selector {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+  margin: -1em -0.75em 1em;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: auto; }
+  .time-range-selector .time-option {
+    color: #aba5c3;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    padding: 1em;
+    display: inline-block;
+    position: relative; }
+    .time-range-selector .time-option:active {
+      color: #50496d; }
+  .time-range-selector .time--active {
+    color: #50496d; }
+    .time-range-selector .time--active:after {
+      position: absolute;
+      left: 1em;
+      right: 1em;
+      bottom: 0.6em;
+      content: '';
+      display: block;
+      height: 2px;
+      background: #50496d;
+      transform: scaleX(0);
+      animation: scaleX-in 0.2s;
+      animation-fill-mode: forwards; }
+
+@media (min-width: 769px) {
+  .time-range-selector .time-option {
+    font-size: 1.2em; }
+    .time-range-selector .time-option:hover {
+      color: #50496d; }
+  .time-range-selector .time--active:after {
+    height: 3px;
+    bottom: 0.7em; } }

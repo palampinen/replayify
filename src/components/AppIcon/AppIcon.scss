@@ -1,0 +1,20 @@
+@import 'styles/variables.scss';
+
+.appicon {
+  display: block;
+  color: $brand-pink;
+  margin: 0;
+  font-weight: 900;
+  position: relative;
+
+  img {
+    width: 66px;
+  }
+
+  &.appicon--default {
+    color: $brand-pink;
+  }
+  &.appicon--white {
+    color: white;
+  }
+}

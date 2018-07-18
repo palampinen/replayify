@@ -1,0 +1,12 @@
+.appicon {
+  display: block;
+  color: #f9adac;
+  margin: 0;
+  font-weight: 900;
+  position: relative; }
+  .appicon img {
+    width: 66px; }
+  .appicon.appicon--default {
+    color: #f9adac; }
+  .appicon.appicon--white {
+    color: white; }

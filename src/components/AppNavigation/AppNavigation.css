@@ -1,0 +1,74 @@
+.App-navigation {
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 101;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 8vw;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); }
+  .App-navigation .app-title,
+  .App-navigation .app-icon {
+    display: none; }
+  .App-navigation .App-navigation__link {
+    font-size: 10px;
+    color: rgba(58, 53, 78, 0.45);
+    text-align: center;
+    padding: 7px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    bottom: 0;
+    z-index: 99;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.1s; }
+    .App-navigation .App-navigation__link .icon {
+      font-size: 22px;
+      display: block;
+      margin: -2px 0; }
+    .App-navigation .App-navigation__link .navigation__label {
+      display: block; }
+    .App-navigation .App-navigation__link.active, .App-navigation .App-navigation__link:active {
+      color: #3a354e; }
+
+@media (min-width: 769px) {
+  .App-navigation {
+    left: 0;
+    top: 0;
+    width: 100px;
+    padding: 40px 0 0;
+    right: auto;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05); }
+    .App-navigation .app-icon {
+      display: inline-block;
+      margin: 5px 0 20px 0px; }
+      .App-navigation .app-icon img {
+        max-width: 60px; }
+    .App-navigation .App-navigation__link {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      width: 100px;
+      height: 100px;
+      transition: color 0.1s;
+      font-size: 12px;
+      flex: none; }
+      .App-navigation .App-navigation__link .icon {
+        font-size: 33px;
+        margin: -2px 0 -4px; }
+      .App-navigation .App-navigation__link:hover {
+        color: #3a354e; } }

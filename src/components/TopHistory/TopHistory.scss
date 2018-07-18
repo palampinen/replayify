@@ -1,0 +1,25 @@
+@import 'styles/variables.scss';
+
+.top-history {
+  max-width: $breakpoint-medium;
+  padding: 0 0 1em;
+  margin: 0 auto;
+}
+
+.action-buttons {
+  margin: 2.5em 0 0;
+  text-align: center;
+  color: $mid-grey;
+  font-size: 0.8em;
+
+  .btn {
+    margin-top: 1em;
+  }
+}
+
+.action-buttons__title {
+  color: $dark-grey;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+}

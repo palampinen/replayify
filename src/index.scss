@@ -1,0 +1,73 @@
+@import 'styles/variables.scss';
+@import 'styles/animations.scss';
+@import 'styles/font.scss';
+@import 'styles/buttons.scss';
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family-sans-serif;
+  font-size: $base-font-size-mobile;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+  color: $dark-grey;
+  font-weight: 400;
+
+  background: #fff;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: 0;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: $font-family-sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.6em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+@media (min-width: $breakpoint-small) {
+  body {
+    font-size: $base-font-size;
+  }
+}

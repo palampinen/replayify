@@ -1,0 +1,114 @@
+@import './variables.scss';
+@import './animations.scss';
+
+@mixin button-theme($color, $background, $border) {
+  @extend .btn;
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:focus {
+    color: $color;
+    background-color: darken($background, 3%);
+    border-color: darken($border, 3%);
+  }
+  &:hover {
+    color: $color;
+    background-color: darken($background, 3%);
+    border-color: darken($border, 3%);
+  }
+  &:active {
+    color: $color;
+    background-color: darken($background, 6%);
+    border-color: darken($border, 6%);
+
+    &:hover,
+    &:focus {
+      color: $color;
+      background-color: darken($background, 6%);
+      border-color: darken($border, 6%);
+    }
+  }
+  &:active {
+    background-image: none;
+  }
+  &[disabled] {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $background;
+      border-color: $border;
+    }
+  }
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 1em 3em 0.98em;
+  text-align: center;
+  font-size: 4vw;
+  border-width: 0px;
+  border-style: solid;
+  border-radius: 50px;
+  white-space: nowrap;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.075);
+  transition: all 0.15s;
+  user-select: none;
+
+  &:active {
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.btn-primary {
+  @include button-theme($brand-pink, #fff, $brand-pink);
+
+  // exception in button behavior
+  &:hover,
+  &:focus,
+  &:active,
+  &:active:hover,
+  &:active:focus {
+    background-color: #fff;
+  }
+  &:active {
+    color: darken($brand-pink, 6%);
+  }
+}
+
+.btn-secondary {
+  @include button-theme(#fff, $brand-green, $brand-green);
+}
+
+.btn-dark {
+  @include button-theme(#fff, $dark-grey, $dark-grey);
+}
+
+.btn-link {
+  font-size: 1.1em;
+  display: block;
+  width: 100%;
+  padding: 1em 0em;
+  text-align: left;
+  border: none;
+  color: #fff;
+  text-decoration: underline;
+
+  background: transparent;
+  font-weight: bold;
+
+  margin-top: 1em;
+}
+
+@media (min-width: $breakpoint-small) {
+  .btn {
+    width: auto;
+    margin: 0 auto;
+    font-size: 1.2em;
+  }
+}
