@@ -2,7 +2,7 @@
     "name": "Replayify",
     "version": "1.0.0",
     "private": true,
-    "homepage": "http://palampinen.github.io/replayify",
+    "homepage": "https://replayify.com",
     "dependencies": {
         "autobind-decorator": "^2.1.0",
         "axios": "^0.18.0",

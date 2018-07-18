@@ -6,7 +6,7 @@
 
 This application uses Spotify Web API to discover users most listened tracks and artists from Spotify. User can also create playlist from their favorite tracks and artists.
 
-[Try out replayify.com](http://replayify.com)
+[Try out replayify.com](https://replayify.com)
 
 ## Spotify API
 
