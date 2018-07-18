@@ -1,10 +1,12 @@
 # Replayify
 
-![](docs/replayify.png)
-
 > Replay your Spotify favorites!
 
+![](docs/replayify.png)
+
 This application uses Spotify Web API to discover users most listened tracks and artists from Spotify. User can also create playlist from their favorite tracks and artists.
+
+[Try out replayify.com](http://replayify.com)
 
 ## Spotify API
 
