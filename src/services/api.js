@@ -1,8 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import localStorage from 'local-storage';
-import { get } from 'lodash';
-import { getErrorActionType } from '../services/axios';
-import history from '../services/history';
+import { get, isNil } from 'lodash';
+import { getErrorActionType } from './axios';
+import history from './history';
+import { authorizeUser } from '../concepts/auth';
 
 const getAccessToken = () => localStorage.get('accessToken');
 
@@ -15,16 +16,27 @@ const getAuthHeader = token => {
 };
 
 const isUnauthorized = status => status === 401;
-const redirectToLogin = () => history.replace('/login');
+const redirectToLogin = dispatch => {
+  const accessToken = getAccessToken();
+
+  // Automatically login if token exists
+  // and it is most probably expired
+  if (!isNil(accessToken)) {
+    return dispatch(authorizeUser());
+  }
+
+  // otherwise redirect to login page
+  history.replace('/login');
+};
 
 // https://github.com/svrcekmichal/redux-axios-middleware#middleware-options
 const handleApiError = response => {
   const status = get(response, 'error.response.status');
-  const { error, action, next, options } = response;
+  const { error, action, next, options, dispatch } = response;
 
   // On Unauthorized Request redirect to /login
   if (isUnauthorized(status)) {
-    return redirectToLogin();
+    return redirectToLogin(dispatch);
   }
 
   const errorObject = {
