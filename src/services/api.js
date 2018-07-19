@@ -4,6 +4,7 @@ import { get, isNil } from 'lodash';
 import { getErrorActionType } from './axios';
 import history from './history';
 import { authorizeUser } from '../concepts/auth';
+import { getCurrentPathName } from '../concepts/route';
 
 const getAccessToken = () => localStorage.get('accessToken');
 
@@ -16,8 +17,14 @@ const getAuthHeader = token => {
 };
 
 const isUnauthorized = status => status === 401;
-const redirectToLogin = dispatch => {
+const redirectToLogin = () => (dispatch, getState) => {
   const accessToken = getAccessToken();
+  const state = getState();
+  const pathName = getCurrentPathName(state);
+
+  // add current path to local storage
+  // and redirect to it later after login
+  localStorage.set('redirectTo', pathName);
 
   // Automatically login if token exists
   // and it is most probably expired
@@ -36,7 +43,7 @@ const handleApiError = response => {
 
   // On Unauthorized Request redirect to /login
   if (isUnauthorized(status)) {
-    return redirectToLogin(dispatch);
+    return dispatch(redirectToLogin());
   }
 
   const errorObject = {

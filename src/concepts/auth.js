@@ -42,7 +42,12 @@ export const saveLogin = () => dispatch => {
   // redirect
   if (accessToken) {
     localStorage.set('accessToken', accessToken);
-    history.replace('/');
+
+    // try to get redirect from local storage
+    const redirectTo = localStorage.get('redirectTo') || '/';
+    localStorage.remove('redirectTo');
+
+    history.replace(redirectTo);
   } else {
     history.replace('/login');
   }
@@ -51,7 +56,6 @@ export const saveLogin = () => dispatch => {
 };
 
 // # Reducer
-
 const initialState = fromJS({
   isLoggedIn: false,
 });
