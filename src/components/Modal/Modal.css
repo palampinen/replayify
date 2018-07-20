@@ -30,6 +30,12 @@
     transform: translate3d(0, 0px, 0);
     opacity: 1; } }
 
+@keyframes appear-from-left {
+  0% {
+    transform: translate3d(-100%, 0, 0); }
+  100% {
+    transform: translate3d(0, 0, 0); } }
+
 .modal {
   animation: fade-in 0.15s;
   background: rgba(255, 255, 255, 0.9);

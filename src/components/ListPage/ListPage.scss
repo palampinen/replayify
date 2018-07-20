@@ -1,5 +1,4 @@
 @import 'styles/variables.scss';
-@import 'styles/animations.scss';
 
 .list-page {
   display: block;
@@ -90,6 +89,9 @@
     padding: 35px 2em;
 
     &:before {
+      top: -30px;
+      height: 45px;
+      transform: translate3d(0, 0, 0) skewY(-2deg);
       display: none;
     }
   }

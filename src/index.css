@@ -32,6 +32,12 @@
     transform: translate3d(0, 0px, 0);
     opacity: 1; } }
 
+@keyframes appear-from-left {
+  0% {
+    transform: translate3d(-100%, 0, 0); }
+  100% {
+    transform: translate3d(0, 0, 0); } }
+
 @keyframes fade-in {
   0% {
     opacity: 0; }
@@ -63,6 +69,12 @@
   100% {
     transform: translate3d(0, 0px, 0);
     opacity: 1; } }
+
+@keyframes appear-from-left {
+  0% {
+    transform: translate3d(-100%, 0, 0); }
+  100% {
+    transform: translate3d(0, 0, 0); } }
 
 .btn, .btn-primary, .btn-default, .btn-secondary, .btn-dark {
   display: block;
@@ -209,6 +221,10 @@
 
 .btn-inline + .btn-inline {
   margin: 1.5em 0 0 0; }
+
+@media (max-width: 769px) and (orientation: landscape) {
+  .btn, .btn-primary, .btn-default, .btn-secondary, .btn-dark {
+    font-size: 1.2em; } }
 
 @media (min-width: 769px) {
   .btn, .btn-primary, .btn-default, .btn-secondary, .btn-dark {

@@ -64,7 +64,9 @@
 
 @media (max-width: 769px) and (orientation: landscape) {
   .login__content {
-    margin: 0 auto; } }
+    margin: 0 auto; }
+  .login__title {
+    margin-bottom: 45vh; } }
 
 @media (min-width: 769px) and (orientation: landscape) {
   .login__title {

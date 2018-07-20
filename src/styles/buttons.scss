@@ -118,6 +118,12 @@
   }
 }
 
+@media (max-width: $breakpoint-small) and (orientation: landscape) {
+  .btn {
+    font-size: 1.2em;
+  }
+}
+
 @media (min-width: $breakpoint-small) {
   .btn {
     width: auto;

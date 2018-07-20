@@ -84,6 +84,9 @@
   .login__content {
     margin: 0 auto;
   }
+  .login__title {
+    margin-bottom: 45vh;
+  }
 }
 
 @media (min-width: $breakpoint-small) and (orientation: landscape) {
