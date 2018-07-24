@@ -1,0 +1,67 @@
+@import 'styles/variables.scss';
+
+$player-height: $navigation-size-mobile * 1;
+
+.music-player {
+  text-align: left;
+  padding: 0 $player-height;
+  background: linear-gradient(120deg, $brand-pink, $brand-green);
+  background: #f7f7f7;
+  animation: flash-from-bottom 0.5s;
+
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: $navigation-size-mobile;
+  bottom: 0;
+  height: $player-height;
+}
+
+%player-button {
+  font-size: 20px;
+  border-radius: 50%;
+  width: $player-height;
+  height: $player-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+
+  border: none;
+  background: transparent;
+  color: $black;
+}
+
+.play-button {
+  @extend %player-button;
+  left: 0;
+}
+
+.close-player-button {
+  @extend %player-button;
+  right: 0;
+}
+
+.music-player__info {
+  flex: 2;
+  color: $black;
+
+  height: $player-height;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.music-player__info__track {
+  font-weight: bold;
+}
