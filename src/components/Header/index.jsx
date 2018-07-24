@@ -39,7 +39,14 @@ class Header extends Component {
     return (
       <header className={classnames('header', { 'header--scrolled': !isOnTop })}>
         <div className="container">
-          <AppIcon theme="white" />
+          {/*<AppIcon theme="white" />*/}
+          <div />
+
+          <div className="header__user">
+            <span className="header__avatar">
+              <span className="header__avatar__fallback ion-android-person" />
+            </span>
+          </div>
         </div>
       </header>
     );

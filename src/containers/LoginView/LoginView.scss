@@ -57,6 +57,10 @@
   background-position: center;
 }
 
+.btn-login {
+  animation: mic-drop 0.4s;
+}
+
 @media (min-width: $breakpoint-small - 1) {
   .login__content {
     max-width: $breakpoint-medium;
@@ -83,6 +87,13 @@
 @media (max-width: $breakpoint-small) and (orientation: landscape) {
   .login__content {
     margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 0 15%;
+    overflow-y: auto;
   }
   .login__title {
     margin-bottom: 45vh;

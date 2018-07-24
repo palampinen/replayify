@@ -38,6 +38,14 @@
   100% {
     transform: translate3d(0, 0, 0); } }
 
+@keyframes flash-from-bottom {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0); }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0); } }
+
 @keyframes fade-in {
   0% {
     opacity: 0; }
@@ -74,6 +82,14 @@
   0% {
     transform: translate3d(-100%, 0, 0); }
   100% {
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes flash-from-bottom {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0); }
+  100% {
+    opacity: 1;
     transform: translate3d(0, 0, 0); } }
 
 .btn, .btn-primary, .btn-default, .btn-secondary, .btn-dark {
@@ -226,6 +242,10 @@
   .btn, .btn-primary, .btn-default, .btn-secondary, .btn-dark {
     font-size: 1.2em; } }
 
+@media (min-width: 500px) {
+  .btn, .btn-primary, .btn-default, .btn-secondary, .btn-dark {
+    font-size: 22px; } }
+
 @media (min-width: 769px) {
   .btn, .btn-primary, .btn-default, .btn-secondary, .btn-dark {
     width: auto;
@@ -235,6 +255,10 @@
     display: inline-block; }
     .btn-inline + .btn-inline {
       margin: 0 0 0 1em; } }
+
+@media (min-width: 1025px) {
+  .btn:hover, .btn-primary:hover, .btn-default:hover, .btn-secondary:hover, .btn-dark:hover {
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.13); } }
 
 html,
 body {

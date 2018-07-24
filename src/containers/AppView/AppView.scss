@@ -32,6 +32,12 @@
   }
 
   .App-content {
-    padding: 0 2em 2em;
+    padding: 0 0 2em;
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  .App-content {
+    padding: 0 2em;
   }
 }

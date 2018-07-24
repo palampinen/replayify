@@ -3,7 +3,7 @@
   text-align: left;
   font-size: 1.1em;
   margin: 0 -1em;
-  max-width: 1024px;
+  max-width: 1025px;
   display: flex;
   align-items: center;
   color: #50496d;
@@ -142,7 +142,10 @@
 
 @media (min-width: 769px) {
   .play-history__item {
-    padding: 1em 1.5em; }
+    padding: 1em 1.5em;
+    margin: 0 -1.8em; }
+  .play__track-name {
+    font-weight: 500; }
   .play__time {
     text-align: right;
     flex: 140px 0 0;

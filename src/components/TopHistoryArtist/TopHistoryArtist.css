@@ -145,8 +145,13 @@
 
 @media (min-width: 769px) {
   .artist-history__item {
-    padding: 1em 1.5em; }
+    padding: 1em 1.5em;
+    margin: 0 -1.8em; }
+  .artist__name {
+    font-weight: 500; }
   .order-number {
-    flex: 30px 0 0;
+    flex: 35px 0 0;
+    min-width: 35px;
     margin-right: 0;
-    text-align: left; } }
+    text-align: right;
+    padding-right: 23px; } }

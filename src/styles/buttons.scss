@@ -124,6 +124,12 @@
   }
 }
 
+@media (min-width: 500px) {
+  .btn {
+    font-size: 22px;
+  }
+}
+
 @media (min-width: $breakpoint-small) {
   .btn {
     width: auto;
@@ -135,6 +141,14 @@
     display: inline-block;
     & + & {
       margin: 0 0 0 1em;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  .btn {
+    &:hover {
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.13);
     }
   }
 }

@@ -22,4 +22,8 @@
   .App-container {
     padding: 0 0 0 100px; }
   .App-content {
-    padding: 0 2em 2em; } }
+    padding: 0 0 2em; } }
+
+@media (min-width: 1025px) {
+  .App-content {
+    padding: 0 2em; } }

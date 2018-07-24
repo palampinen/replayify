@@ -64,7 +64,13 @@
 @media (min-width: $breakpoint-small) {
   .play-history__item {
     padding: 1em 1.5em;
+    margin: 0 -1.8em;
   }
+
+  .play__track-name {
+    font-weight: 500;
+  }
+
   .play__time {
     text-align: right;
     flex: 140px 0 0;

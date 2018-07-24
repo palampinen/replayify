@@ -9,6 +9,7 @@ $data-grey: #555;
 $mid-grey: lighten($dark-grey, 35%);
 $grey: #d2d2d2;
 $light-grey: #fafafa;
+$bg-grey: #f9f9f9;
 $black: #000;
 
 $brand-primary: #e550a7;
@@ -19,6 +20,7 @@ $brand-danger: red;
 
 $brand-pink: #f9adac;
 $brand-green: #9ee2d9;
+$brand-blue: #5d42e5;
 
 // # Element Sizes
 $header-height: 60px;
@@ -34,7 +36,7 @@ $button-border-radius: 0px;
 
 // Breakpoints
 $breakpoint-small: 769px;
-$breakpoint-medium: 1024px;
+$breakpoint-medium: 1025px;
 $breakpoint-large: 1400px;
 
 // # Box-shadows
@@ -43,3 +45,4 @@ $box-shadow-1: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
 // # Animations
 $animation-max-items: 50;
 $animation-initial-delay: 100ms;
+$cubic-bezier: cubic-bezier(0.87, 0.38, 0.27, 0.95);

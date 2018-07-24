@@ -34,10 +34,12 @@
       animation-fill-mode: forwards; }
 
 @media (min-width: 769px) {
-  .time-range-selector .time-option {
-    font-size: 1.2em; }
-    .time-range-selector .time-option:hover {
-      color: #50496d; }
-  .time-range-selector .time--active:after {
-    height: 3px;
-    bottom: 0.7em; } }
+  .time-range-selector {
+    margin: -1em -1.25em 1em; }
+    .time-range-selector .time-option {
+      font-size: 1.2em; }
+      .time-range-selector .time-option:hover {
+        color: #50496d; }
+    .time-range-selector .time--active:after {
+      height: 3px;
+      bottom: 0.7em; } }

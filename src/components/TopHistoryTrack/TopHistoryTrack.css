@@ -143,4 +143,7 @@
 
 @media (min-width: 769px) {
   .track-history__item {
-    padding: 1em 1.5em; } }
+    padding: 1em 1.5em;
+    margin: 0 -1.8em; }
+  .track__track-name {
+    font-weight: 500; } }

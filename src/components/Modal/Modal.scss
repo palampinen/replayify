@@ -3,7 +3,7 @@
 
 .modal {
   animation: fade-in 0.15s;
-  background: rgba(#fff, 0.9);
+  background: rgba(#f2f2f2, 0.9);
 
   position: fixed;
   top: 0;
@@ -41,6 +41,6 @@
     position: static;
     max-width: $breakpoint-small;
     margin: 0 auto;
-    box-shadow: $box-shadow-1;
+    padding: 1.5em 2em 2em;
   }
 }

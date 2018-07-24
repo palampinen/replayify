@@ -46,9 +46,12 @@
   background-repeat: no-repeat;
   background-position: center; }
 
+.btn-login {
+  animation: mic-drop 0.4s; }
+
 @media (min-width: 768px) {
   .login__content {
-    max-width: 1024px;
+    max-width: 1025px;
     margin: 0 auto; }
   .login__app-icon {
     position: absolute;
@@ -64,7 +67,14 @@
 
 @media (max-width: 769px) and (orientation: landscape) {
   .login__content {
-    margin: 0 auto; }
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 0 15%;
+    overflow-y: auto; }
   .login__title {
     margin-bottom: 45vh; } }
 

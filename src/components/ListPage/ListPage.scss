@@ -45,8 +45,8 @@
     left: 0;
     right: 0;
     overflow-x: hidden;
-    top: -3vh;
-    height: 5vh;
+    top: -7vw;
+    height: 10vw;
 
     background: #fff;
     z-index: 3;
@@ -61,6 +61,14 @@
   z-index: 4;
 }
 
+@media (min-width: 500px) {
+  .list-page__content:before {
+    top: -4vw;
+    height: 6vw;
+    transform: translate3d(0, 0, 0) skewY(-2deg);
+  }
+}
+
 @media (min-width: $breakpoint-small) {
   .list-page {
     display: block;
@@ -68,13 +76,16 @@
     max-width: $breakpoint-medium;
     position: relative;
 
-    margin: 0 auto;
-    padding: 400px 1.5em 2em;
+    margin: 0 auto 1.5em;
+    padding: 400px 1.5em 0em;
     padding: calc(55vh - 100px) 1.5em 2em;
+    background: #fff;
+    min-height: 105vh; // to enable scroll which reveals action panel
   }
 
   .list-page__title {
     padding-bottom: 0;
+    top: -0.75em;
   }
 
   .list-page__image {
@@ -85,14 +96,24 @@
   }
 
   .list-page__content {
-    margin: 0 -2.5em;
+    margin: 0 -1.5em;
     padding: 35px 2em;
 
     &:before {
-      top: -30px;
+      top: -25px;
       height: 45px;
-      transform: translate3d(0, 0, 0) skewY(-2deg);
-      display: none;
+      transform: translate3d(0, 0, 0) skewY(-1.5deg);
     }
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  body {
+    background: $bg-grey;
+  }
+  .list-page {
+    box-shadow: 0 2px 40px rgba(80, 80, 80, 0.05);
+    margin: 0 auto;
+    padding: calc(55vh - 100px) 1.5em 5.5em;
   }
 }
