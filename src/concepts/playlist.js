@@ -1,14 +1,15 @@
 // # Playlist concept
 
 import { fromJS } from 'immutable';
-import moment from 'moment';
 import { get, isNil, flatten, shuffle } from 'lodash';
 
 import { getUser } from './user';
-import { fetchTopArtistsTopTracks, getTopTracksUris } from './top-history';
+import { fetchTopArtistsTopTracks, getTopTracksUris, getTimeRange } from './top-history';
 import { getRecentlyPlayedUris } from './play-history';
 import { openPlaylistPopup } from './playlist-popup';
 import { apiCall } from '../services/api';
+import getPlaylistName from '../services/playlist-name';
+import PlaylistTypes from '../constants/PlaylistTypes';
 
 // # Action Types
 const CREATE_PLAYLIST = 'playlist/CREATE_PLAYLIST';
@@ -60,6 +61,8 @@ const topPerArtist = 5;
 export const createTopArtistPlaylist = () => (dispatch, getState) => {
   let tracks;
 
+  const timeRange = getTimeRange(getState()).get('artists');
+
   return dispatch(fetchTopArtistsTopTracks())
     .then(responses => {
       const tracksPerArtist = responses.map(response => get(response, 'payload.data.tracks'));
@@ -77,7 +80,7 @@ export const createTopArtistPlaylist = () => (dispatch, getState) => {
     .then(() =>
       dispatch(
         createPlaylist({
-          name: 'Replay Top-20 Artists',
+          name: getPlaylistName({ type: PlaylistTypes.ARTIST, timeRange }),
           description: 'Top-5 tracks from each of my Top-20 artists.',
         })
       )
@@ -98,7 +101,9 @@ export const createTopArtistPlaylist = () => (dispatch, getState) => {
 };
 
 export const createTopTracksPlaylist = () => (dispatch, getState) => {
-  const tracks = getTopTracksUris(getState());
+  const state = getState();
+  const tracks = getTopTracksUris(state);
+  const timeRange = getTimeRange(state).get('tracks');
 
   if (!tracks.size) {
     return;
@@ -106,7 +111,7 @@ export const createTopTracksPlaylist = () => (dispatch, getState) => {
 
   return dispatch(
     createPlaylist({
-      name: 'Replay Top-50 Tracks',
+      name: getPlaylistName({ type: PlaylistTypes.TRACK, timeRange }),
     })
   ).then(response => {
     const playlist = get(response, 'payload.data');
@@ -130,11 +135,9 @@ export const createRecentlyPlayedPlaylist = () => (dispatch, getState) => {
     return;
   }
 
-  const today = moment();
-
   return dispatch(
     createPlaylist({
-      name: `Replay 50 Tracks - ${today.format('MMMM YYYY')}`,
+      name: getPlaylistName({ type: PlaylistTypes.RECENT }),
     })
   ).then(response => {
     const playlist = get(response, 'payload.data');
