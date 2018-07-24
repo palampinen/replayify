@@ -19,6 +19,14 @@ Application uses followig parts of Spotify Web API
 - [Creating playlist](https://developer.spotify.com/documentation/web-api/reference/playlists/create-playlist/)
 - [Adding tracks to playlist](https://developer.spotify.com/documentation/web-api/reference/playlists/add-tracks-to-playlist/)
 
+### Create Spotify App
+
+Go to https://developer.spotify.com/dashboard/, log in and create a new App.
+
+Add `localhost:3000/callback` as _Redirect URI_ in your Spotify App Settings.
+
+Grab the _Client Id_ that will be added to env.js.
+
 ## Development
 
 - `npm install`
