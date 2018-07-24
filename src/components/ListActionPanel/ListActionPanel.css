@@ -1,0 +1,48 @@
+.action-buttons {
+  margin: 2.5em 0 0;
+  text-align: center;
+  color: #aba5c3;
+  font-size: 0.8em; }
+  .action-buttons .btn {
+    margin-top: 1em; }
+
+.action-buttons__title {
+  color: #50496d;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  font-size: 1.2em; }
+
+@media (min-width: 1200px) {
+  .action-buttons {
+    color: #aba5c3;
+    font-size: 0.8em;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1.5em 2em;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.02);
+    overflow-x: hidden;
+    width: 1025px;
+    left: calc(50% + 50px);
+    margin-left: -512px;
+    opacity: 0.75;
+    transform: translate3d(0, 100%, 0);
+    transition: all 0.3s cubic-bezier(0.87, 0.38, 0.27, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .action-buttons.action-buttons--scrolled {
+      opacity: 1;
+      transform: translate3d(0, 0, 0); }
+    .action-buttons .action-buttons__info {
+      text-align: left;
+      flex: 2; }
+    .action-buttons .action-buttons__button {
+      flex: 2;
+      text-align: right; }
+      .action-buttons .action-buttons__button .btn {
+        margin: 0;
+        float: right; } }

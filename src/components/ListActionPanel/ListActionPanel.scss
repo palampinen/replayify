@@ -1,0 +1,66 @@
+@import 'styles/variables.scss';
+
+.action-buttons {
+  margin: 2.5em 0 0;
+  text-align: center;
+  color: $mid-grey;
+  font-size: 0.8em;
+
+  .btn {
+    margin-top: 1em;
+  }
+}
+
+.action-buttons__title {
+  color: $dark-grey;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+}
+
+// Fixed playlist button on larger devices
+@media (min-width: 1200px) {
+  .action-buttons {
+    color: #aba5c3;
+    font-size: 0.8em;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(white, 0.98);
+    padding: 1.5em 2em;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.02);
+    overflow-x: hidden;
+    width: $breakpoint-medium;
+    left: calc(50% + 50px);
+    margin-left: -512px;
+
+    opacity: 0.75;
+    transform: translate3d(0, 100%, 0);
+    transition: all 0.3s $cubic-bezier;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &.action-buttons--scrolled {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .action-buttons__info {
+      text-align: left;
+      flex: 2;
+    }
+
+    .action-buttons__button {
+      flex: 2;
+      text-align: right;
+      .btn {
+        margin: 0;
+        float: right;
+      }
+    }
+  }
+}

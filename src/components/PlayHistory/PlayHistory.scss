@@ -6,3 +6,8 @@
   margin: 0 auto;
 }
 
+@media (min-width: $breakpoint-medium) {
+  .play-history {
+    padding: 0;
+  }
+}

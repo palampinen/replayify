@@ -1,18 +1,4 @@
 .top-history {
-  max-width: 1024px;
+  max-width: 1025px;
   padding: 0 0 1em;
   margin: 0 auto; }
-
-.action-buttons {
-  margin: 2.5em 0 0;
-  text-align: center;
-  color: #aba5c3;
-  font-size: 0.8em; }
-  .action-buttons .btn {
-    margin-top: 1em; }
-
-.action-buttons__title {
-  color: #50496d;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-  font-size: 1.2em; }

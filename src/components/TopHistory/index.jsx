@@ -4,7 +4,10 @@ import ListPage from '../ListPage';
 import TopHistoryTrack from '../TopHistoryTrack';
 import TopHistoryArtist from '../TopHistoryArtist';
 import TimeRangeSelector from '../TimeRangeSelector';
+import ListActionPanel from '../ListActionPanel';
 import ThemeColors from '../../constants/ThemeColors';
+import { labels } from '../../constants/TimeRanges';
+import PlaylistTypes from '../../constants/PlaylistTypes';
 import './TopHistory.css';
 
 const showMax = 50;
@@ -17,10 +20,10 @@ const TopHistory = ({
   createArtistPlaylist,
   createTracksPlaylist,
   updateTimeRange,
-  type = 'artists',
+  type = PlaylistTypes.ARTIST,
 }) => (
   <div className="top-history">
-    {type === 'artists' && (
+    {type === PlaylistTypes.ARTIST && (
       <ListPage headerImageSrc={artistImg} title="Top Artists" themeColor={ThemeColors.PINK}>
         <div>
           <TimeRangeSelector selected={timeRange} onSelect={updateTimeRange} />
@@ -37,19 +40,19 @@ const TopHistory = ({
             ))}
 
           {topHistory.get('artists').size > 0 && (
-            <div className="action-buttons">
-              <div className="action-buttons__title">Create Your Top Artists playlist</div>
-              This creates a playlist from your Top-20 artists with Top-5 tracks from each artists
-              in randomized order.
-              <button className="btn btn-dark" onClick={createArtistPlaylist}>
-                Create Playlist
-              </button>
-            </div>
+            <ListActionPanel
+              title="Create Your Top Artists playlist"
+              description={`This creates a playlist from your ${
+                labels[timeRange]
+              } Top-20 artists with Top-5 tracks from each artist
+                in random order.`}
+              onActionClick={createArtistPlaylist}
+            />
           )}
         </div>
       </ListPage>
     )}
-    {type === 'tracks' && (
+    {type === PlaylistTypes.TRACK && (
       <ListPage headerImageSrc={trackImg} title="Top Tracks" themeColor={ThemeColors.BLUE}>
         <div>
           <TimeRangeSelector selected={timeRange} onSelect={updateTimeRange} />
@@ -65,13 +68,11 @@ const TopHistory = ({
             ))}
 
           {topHistory.get('tracks').size > 0 && (
-            <div className="action-buttons">
-              <div className="action-buttons__title">Create Your Top Tracks playlist</div>
-              This creates a playlist from your Top-50 tracks.
-              <button className="btn btn-dark" onClick={createTracksPlaylist}>
-                &nbsp; Create Playlist
-              </button>
-            </div>
+            <ListActionPanel
+              title="Create Your Top Tracks playlist"
+              description={`This creates a playlist from your ${labels[timeRange]} Top-50 tracks.`}
+              onActionClick={createTracksPlaylist}
+            />
           )}
         </div>
       </ListPage>

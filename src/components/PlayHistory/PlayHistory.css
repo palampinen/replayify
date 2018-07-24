@@ -1,4 +1,8 @@
 .play-history {
   padding: 0 0 1em;
-  max-width: 1024px;
+  max-width: 1025px;
   margin: 0 auto; }
+
+@media (min-width: 1025px) {
+  .play-history {
+    padding: 0; } }
