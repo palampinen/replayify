@@ -31,16 +31,18 @@ class PlaylistPopup extends Component {
             </div>
           </div>
 
-          <a
-            className="btn btn-inline btn-dark"
-            href={playlistUri}
-            onClick={this.props.closePlaylistPopup}
-          >
-            Open Playlist
-          </a>
-          <button onClick={this.props.closePlaylistPopup} className="btn btn-inline btn-default">
-            Close
-          </button>
+          <div className="playlist__buttons">
+            <a
+              className="btn btn-inline btn-dark"
+              href={playlistUri}
+              onClick={this.props.closePlaylistPopup}
+            >
+              Open Playlist
+            </a>
+            <button onClick={this.props.closePlaylistPopup} className="btn btn-inline btn-default">
+              Close
+            </button>
+          </div>
         </div>
       </Modal>
     );
