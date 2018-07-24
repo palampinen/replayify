@@ -1,0 +1,53 @@
+.app-help {
+  display: block;
+  max-width: 615.2px;
+  margin: 3em auto;
+  animation: mic-drop 0.75s; }
+
+.app-help__buttons {
+  margin: 2em 0; }
+
+.scope-list li {
+  font-weight: bold; }
+
+.app-help__logo {
+  text-align: left; }
+
+.app-help__footer {
+  text-align: center;
+  margin: 6em auto 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.footer__link {
+  font-size: 40px;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+  color: #50496d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0em 0.4em;
+  opacity: 0.8;
+  transition: all 0.15s;
+  transform-origin: 50% 50%; }
+  .footer__link img {
+    max-width: 40px;
+    float: left; }
+    .footer__link img.img--ph {
+      max-width: 36px; }
+  .footer__link.footer__link--replayify {
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.03);
+    min-width: 40px; }
+    .footer__link.footer__link--replayify img {
+      max-width: 30px; }
+  .footer__link:hover {
+    opacity: 1;
+    transform: scale(1.05); }
+
+@media (min-width: 769px) {
+  .footer__link {
+    margin: 0em 0.75em; } }

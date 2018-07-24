@@ -17,6 +17,7 @@ import PlayHistory from '../../components/PlayHistory';
 import TopHistory from '../../components/TopHistory';
 import ScrollTopRoute from '../../components/ScrollTopRoute';
 import AppNavigation from '../../components/AppNavigation';
+import AppHelp from '../../components/AppHelp';
 
 import './AppView.css';
 
@@ -87,6 +88,7 @@ class AppView extends Component {
                 />
               )}
             />
+            <ScrollTopRoute exact path={`${match.url}app`} component={AppHelp} />
           </div>
         </div>
 

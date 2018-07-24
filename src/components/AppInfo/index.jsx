@@ -43,8 +43,11 @@ class AppInfo extends Component {
             Read more about Spotify scopes
           </a>
           <div className="app-info__buttons">
-            <Link className="btn btn-secondary" to="login">
-              OK, got it <span aria-label="OK" role="img">👌🏻</span>
+            <Link className="btn btn-secondary" to="/login">
+              OK, got it{' '}
+              <span aria-label="OK" role="img">
+                👌🏻
+              </span>
             </Link>
           </div>
         </div>
