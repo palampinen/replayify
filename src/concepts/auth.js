@@ -44,8 +44,13 @@ export const saveLogin = () => dispatch => {
     localStorage.set('accessToken', accessToken);
 
     // try to get redirect from local storage
-    const redirectTo = localStorage.get('redirectTo') || '/';
+    let redirectTo = localStorage.get('redirectTo') || '/';
     localStorage.remove('redirectTo');
+
+    // we dont want to redirect to login anymore
+    if (redirectTo === '/login') {
+      redirectTo = '/';
+    }
 
     history.replace(redirectTo);
   } else {
