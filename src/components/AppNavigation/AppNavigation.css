@@ -48,8 +48,7 @@
     height: auto;
     flex-direction: column;
     justify-content: flex-start;
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05);
-    animation: appear-from-left 0.2s; }
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05); }
     .App-navigation .app-icon {
       display: inline-block;
       margin: 5px 0 20px 0px; }
