@@ -15,10 +15,15 @@ class PlayHistory extends Component {
   }
 
   render() {
-    const { plays, createRecentlyPlaylist } = this.props;
+    const { plays, downloadImage, createRecentlyPlaylist } = this.props;
     return (
       <div className="play-history">
-        <ListPage headerImageSrc={playImg} title="Recently Played" themeColor={ThemeColors.YELLOW}>
+        <ListPage
+          headerImageSrc={playImg}
+          title="Recently Played"
+          themeColor={ThemeColors.YELLOW}
+          downloadImage={downloadImage}
+        >
           <div>
             {plays
               .slice(0, showMax)

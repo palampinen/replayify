@@ -20,11 +20,17 @@ const TopHistory = ({
   createArtistPlaylist,
   createTracksPlaylist,
   updateTimeRange,
+  downloadImage,
   type = PlaylistTypes.ARTIST,
 }) => (
   <div className="top-history">
     {type === PlaylistTypes.ARTIST && (
-      <ListPage headerImageSrc={artistImg} title="Top Artists" themeColor={ThemeColors.PINK}>
+      <ListPage
+        headerImageSrc={artistImg}
+        title="Top Artists"
+        themeColor={ThemeColors.PINK}
+        downloadImage={downloadImage}
+      >
         <div>
           <TimeRangeSelector selected={timeRange} onSelect={updateTimeRange} />
 
@@ -53,7 +59,12 @@ const TopHistory = ({
       </ListPage>
     )}
     {type === PlaylistTypes.TRACK && (
-      <ListPage headerImageSrc={trackImg} title="Top Tracks" themeColor={ThemeColors.BLUE}>
+      <ListPage
+        headerImageSrc={trackImg}
+        title="Top Tracks"
+        themeColor={ThemeColors.BLUE}
+        downloadImage={downloadImage}
+      >
         <div>
           <TimeRangeSelector selected={timeRange} onSelect={updateTimeRange} />
           {topHistory

@@ -6,7 +6,7 @@ import { get, isNil, flatten, shuffle } from 'lodash';
 import { getUser } from './user';
 import { fetchTopArtistsTopTracks, getTopTracksUris, getTimeRange } from './top-history';
 import { getRecentlyPlayedUris } from './play-history';
-import { openPlaylistPopup } from './playlist-popup';
+import { openPlaylistPopup, setPlaylistImages } from './playlist-popup';
 import { apiCall } from '../services/api';
 import getPlaylistName from '../services/playlist-name';
 import PlaylistTypes from '../constants/PlaylistTypes';
@@ -15,10 +15,13 @@ import PlaylistTypes from '../constants/PlaylistTypes';
 const CREATE_PLAYLIST = 'playlist/CREATE_PLAYLIST';
 const CREATE_PLAYLIST_SUCCESS = 'playlist/CREATE_PLAYLIST_SUCCESS';
 
+const GET_PLAYLIST_IMAGE = 'playlist/GET_PLAYLIST_IMAGE';
+
 const ADD_TRACKS_TO_PLAYLIST = 'playlist/ADD_TRACKS_TO_PLAYLIST';
 
 // # Selectors
 export const getCreatingPlayListStatus = state => state.playList.get('isCreatingPlaylist');
+export const getPlaylistImages = state => state.playList.get('playlistImages');
 
 // # Action Creators
 export const createPlaylist = (params = {}) => (dispatch, getState) => {
@@ -38,6 +41,28 @@ export const createPlaylist = (params = {}) => (dispatch, getState) => {
     })
   );
 };
+
+export const fetchPlaylistImages = playlistId => (dispatch, getState) => {
+  const user = getUser(getState());
+  const userId = user.get('id');
+
+  if (!userId) {
+    return null;
+  }
+
+  return dispatch(
+    apiCall({
+      type: GET_PLAYLIST_IMAGE,
+      url: `/users/${userId}/playlists/${playlistId}/images`,
+      method: 'GET',
+    })
+  );
+};
+
+export const fetchNewPlaylistImage = playlistId => dispatch =>
+  dispatch(fetchPlaylistImages(playlistId)).then(action =>
+    dispatch(setPlaylistImages(action.payload.data))
+  );
 
 export const addTracksToPlayList = (playlistId, tracks) => (dispatch, getState) => {
   const user = getUser(getState());
@@ -94,9 +119,10 @@ export const createTopArtistPlaylist = () => (dispatch, getState) => {
         return null;
       }
 
-      dispatch(addTracksToPlayList(playlistId, tracks)).then(() =>
-        dispatch(openPlaylistPopup(playlistUri))
-      );
+      dispatch(addTracksToPlayList(playlistId, tracks)).then(() => {
+        dispatch(openPlaylistPopup(playlistUri));
+        dispatch(fetchNewPlaylistImage(playlistId));
+      });
     });
 };
 
@@ -122,9 +148,10 @@ export const createTopTracksPlaylist = () => (dispatch, getState) => {
       return null;
     }
 
-    dispatch(addTracksToPlayList(playlistId, tracks.toJS())).then(() =>
-      dispatch(openPlaylistPopup(playlistUri))
-    );
+    dispatch(addTracksToPlayList(playlistId, tracks.toJS())).then(() => {
+      dispatch(openPlaylistPopup(playlistUri));
+      dispatch(fetchNewPlaylistImage(playlistId));
+    });
   });
 };
 
@@ -148,14 +175,14 @@ export const createRecentlyPlayedPlaylist = () => (dispatch, getState) => {
       return null;
     }
 
-    dispatch(addTracksToPlayList(playlistId, tracks.toJS())).then(() =>
-      dispatch(openPlaylistPopup(playlistUri))
-    );
+    dispatch(addTracksToPlayList(playlistId, tracks.toJS())).then(() => {
+      dispatch(openPlaylistPopup(playlistUri));
+      dispatch(fetchNewPlaylistImage(playlistId));
+    });
   });
 };
 
 // # Reducer
-
 const initialState = fromJS({
   isCreatingPlaylist: false,
 });
@@ -165,6 +192,7 @@ export default function reducer(state = initialState, action) {
     case CREATE_PLAYLIST: {
       return state.set('isCreatingPlaylist', true);
     }
+
     case CREATE_PLAYLIST_SUCCESS: {
       return state.set('isCreatingPlaylist', false);
     }

@@ -13,15 +13,46 @@
   margin: 0;
   padding: 0; }
 
+.playlist-popup__image-link {
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  z-index: 2;
+  border-radius: 20px;
+  transform: scale(0);
+  animation: scale-in 0.25s cubic-bezier(0.87, 0.38, 0.27, 0.95);
+  animation-fill-mode: forwards;
+  animation-delay: 1.2s;
+  cursor: pointer; }
+  .playlist-popup__image-link .playlist-popup__image {
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.075);
+    border-radius: 20px;
+    transition: all 0.15s;
+    will-change: transform;
+    transform-origin: 50% 100%; }
+  .playlist-popup__image-link:hover .playlist-popup__image {
+    transform: scale(1.015);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.115); }
+
 .save-form-success {
   display: block;
   text-align: center;
-  margin: 1em auto 2em; }
+  margin: 2em auto 3em;
+  position: relative;
+  min-height: 250px; }
   .save-form-success .ok-sign {
     width: 200px;
     height: 200px;
     margin: 0 auto;
-    position: relative; }
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25px;
+    text-align: center;
+    z-index: 1; }
   .save-form-success .icon {
     position: absolute;
     font-size: 70px;

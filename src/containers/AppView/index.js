@@ -11,7 +11,9 @@ import {
   updateArtistsTimeRange,
   updateTracksTimeRange,
   updateRecentlyPlayed,
+  shareImage,
 } from '../../concepts/app-view';
+import PlaylistTypes from '../../constants/PlaylistTypes';
 import PlaylistPopup from '../PlaylistPopup';
 import PlayHistory from '../../components/PlayHistory';
 import TopHistory from '../../components/TopHistory';
@@ -39,6 +41,7 @@ class AppView extends Component {
       timeRange,
       updateArtistsTimeRange,
       updateTracksTimeRange,
+      shareImage,
       match,
     } = this.props;
 
@@ -61,6 +64,7 @@ class AppView extends Component {
                   topHistory={topHistory}
                   type="artists"
                   createArtistPlaylist={this.props.createArtistPlaylist}
+                  downloadImage={() => shareImage(PlaylistTypes.ARTIST)}
                 />
               )}
             />
@@ -74,6 +78,7 @@ class AppView extends Component {
                   topHistory={topHistory}
                   type="tracks"
                   createTracksPlaylist={this.props.createTracksPlaylist}
+                  downloadImage={() => shareImage(PlaylistTypes.TRACK)}
                 />
               )}
             />
@@ -85,6 +90,7 @@ class AppView extends Component {
                   plays={playHistory}
                   createRecentlyPlaylist={this.props.createRecentlyPlaylist}
                   updatePlayHistory={this.props.updateRecentlyPlayed}
+                  downloadImage={() => shareImage(PlaylistTypes.RECENT)}
                 />
               )}
             />
@@ -109,6 +115,7 @@ const mapDispatchToProps = {
   updateArtistsTimeRange,
   updateTracksTimeRange,
   updateRecentlyPlayed,
+  shareImage,
 };
 
 export default connect(

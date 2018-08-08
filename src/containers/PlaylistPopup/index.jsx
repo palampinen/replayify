@@ -7,7 +7,7 @@ import './PlaylistPopup.css';
 
 class PlaylistPopup extends Component {
   render() {
-    const { playlistUri, isVisible } = this.props;
+    const { playlistUri, playlistImage, isVisible } = this.props;
 
     if (!isVisible) {
       return null;
@@ -19,6 +19,15 @@ class PlaylistPopup extends Component {
           <h3 className="playlist-popup__title">Yeah!</h3>
           <p className="playlist-popup__info">Your new Playlist is now available in Spotify.</p>
           <div className="save-form-success">
+            {!!playlistImage && (
+              <a
+                href={playlistUri}
+                className="playlist-popup__image-link"
+                title="Open Playlist in Spotify"
+              >
+                <img src={playlistImage} alt="Playlist cover" className="playlist-popup__image" />
+              </a>
+            )}
             <div className="ok-sign">
               <svg className="progress" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
                 <g>

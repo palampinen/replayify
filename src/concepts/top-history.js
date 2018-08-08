@@ -33,6 +33,13 @@ export const getTopTracksUris = createSelector(getTopTracks, tracks =>
   tracks.map(track => track.get('uri'))
 );
 
+const getFirstImage = target => target.getIn(['images', 0, 'url']);
+const getFirstTrackImage = target => target.getIn(['album', 'images', 0, 'url']);
+export const getArtistImages = createSelector(getTopArtists, artists => artists.map(getFirstImage));
+export const getTrackImages = createSelector(getTopTracks, tracks =>
+  tracks.map(getFirstTrackImage)
+);
+
 // # Action Creators
 export const fetchTop = type => (params = {}) => (dispatch, getState) => {
   const timeRanges = getTimeRange(getState());

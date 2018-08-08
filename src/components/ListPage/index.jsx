@@ -12,11 +12,12 @@ class ListPage extends Component {
   }
 
   render() {
-    const { headerImageSrc, title, children } = this.props;
+    const { headerImageSrc, title, downloadImage, children } = this.props;
 
     return (
       <div className="list-page">
         <div style={{ backgroundImage: `url(${headerImageSrc})` }} className="list-page__image" />
+        <button onClick={downloadImage} className="share-link ion-android-share-alt" />
         <h1 className="list-page__title">{title}</h1>
         <div className="list-page__content">
           <div className="list-page__list">{children}</div>

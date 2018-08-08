@@ -26,6 +26,7 @@
   z-index: 2;
   color: #fff;
   padding-bottom: 0.5em;
+  top: -1.15vw;
 }
 
 .list-page__content {
@@ -59,6 +60,27 @@
 .list-page__list {
   position: relative;
   z-index: 4;
+}
+
+.share-link {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 40px;
+  height: 40px;
+  z-index: 99;
+  text-align: center;
+  color: rgba(white, 0.95);
+  line-height: 40px;
+  font-size: 1.8em;
+  border-radius: 50%;
+  transition: all 0.1s;
+  background: transparent;
+  border: none;
+
+  &:active {
+    background: rgba(0, 0, 0, 0.075);
+  }
 }
 
 @media (min-width: 500px) {
@@ -115,5 +137,11 @@
     box-shadow: 0 2px 40px rgba(80, 80, 80, 0.05);
     margin: 0 auto;
     padding: calc(55vh - 100px) 1.5em 5.5em;
+  }
+
+  .share-link {
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
   }
 }

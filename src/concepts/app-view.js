@@ -7,6 +7,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { checkLogin } from './auth';
 import { fetchUserProfile, getUser } from './user';
+import { downloadCoverImages } from './share';
 import { fetchPlayHistory, getPlayHistory } from './play-history';
 import {
   fetchTopHistory,
@@ -55,3 +56,5 @@ export const updateTracksTimeRange = updateTimeRange('tracks');
 export const createArtistPlaylist = createTopArtistPlaylist;
 export const createTracksPlaylist = createTopTracksPlaylist;
 export const createRecentlyPlaylist = createRecentlyPlayedPlaylist;
+
+export const shareImage = downloadCoverImages;

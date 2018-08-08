@@ -21,6 +21,11 @@ export const getRecentlyPlayedUris = createSelector(getPlayHistory, tracks =>
   tracks.map(track => track.getIn(['track', 'uri']))
 );
 
+const getFirstImage = target => target.getIn(['track', 'album', 'images', 0, 'url']);
+export const getPlayHistoryImages = createSelector(getPlayHistory, playHistory =>
+  playHistory.map(getFirstImage)
+);
+
 // # Action Creators
 export const fetchRecentlyPlayed = (params = {}) =>
   apiCall({
