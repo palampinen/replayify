@@ -6,7 +6,7 @@ import PlaylistTypes from '../constants/PlaylistTypes';
 
 const GOLDEN_RATIO = 1.61803398875;
 const BASE_IMG_SIZE = 640;
-const IMG_COUNT = 6;
+const IMG_COUNT = 10;
 
 export const downloadCoverImages = type => (dispatch, getState) => {
   let images = [];
@@ -60,7 +60,7 @@ export const downloadCoverImages = type => (dispatch, getState) => {
         imageLoadCounter++;
 
         if (imageLoadCounter === imageElements.length) {
-          const dataUrl = goldenRatioImage(imageElements);
+          const dataUrl = createStackLayout(imageElements);
           downloadImage(dataUrl, filename);
         }
       })
@@ -69,7 +69,8 @@ export const downloadCoverImages = type => (dispatch, getState) => {
   return null;
 };
 
-const goldenRatioImage = images => {
+// Creates iamge collage in golden ratio layout
+const createGoldenRatioLayout = images => {
   // create canvas
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
@@ -110,6 +111,85 @@ const goldenRatioImage = images => {
   return canvas.toDataURL('image/jpeg', 0.7);
 };
 
+const createStackLayout = images => {
+  const padding = 3;
+  const drawWithPadding = cropImage(padding);
+
+  // create canvas
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+
+  // calclulate canvas size
+  canvas.width = BASE_IMG_SIZE * 2 + padding;
+  canvas.height = BASE_IMG_SIZE * 2 + padding;
+
+  // fill with white
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Image 1
+  drawWithPadding(ctx, images[0], 0, 0, BASE_IMG_SIZE, BASE_IMG_SIZE);
+
+  // Image 2
+  const img2size = BASE_IMG_SIZE;
+  drawWithPadding(
+    ctx,
+    images[1],
+    BASE_IMG_SIZE,
+    BASE_IMG_SIZE - img2size,
+    BASE_IMG_SIZE,
+    BASE_IMG_SIZE
+  );
+
+  // Image 3
+  const smallImgSize = BASE_IMG_SIZE / 2;
+  drawWithPadding(ctx, images[2], 0, BASE_IMG_SIZE, smallImgSize, smallImgSize);
+
+  // Image 4
+  drawWithPadding(ctx, images[3], smallImgSize, BASE_IMG_SIZE, smallImgSize, smallImgSize);
+
+  // Image 5
+  drawWithPadding(ctx, images[4], smallImgSize * 2, BASE_IMG_SIZE, smallImgSize, smallImgSize);
+
+  // Image 6
+  drawWithPadding(ctx, images[5], smallImgSize * 3, BASE_IMG_SIZE, smallImgSize, smallImgSize);
+
+  // Image 7
+  drawWithPadding(ctx, images[6], 0, smallImgSize + BASE_IMG_SIZE, smallImgSize, smallImgSize);
+
+  // Image 8
+  drawWithPadding(
+    ctx,
+    images[7],
+    smallImgSize,
+    smallImgSize + BASE_IMG_SIZE,
+    smallImgSize,
+    smallImgSize
+  );
+
+  // Image 9
+  drawWithPadding(
+    ctx,
+    images[8],
+    smallImgSize * 2,
+    smallImgSize + BASE_IMG_SIZE,
+    smallImgSize,
+    smallImgSize
+  );
+
+  // Image 10
+  drawWithPadding(
+    ctx,
+    images[9],
+    smallImgSize * 3,
+    smallImgSize + BASE_IMG_SIZE,
+    smallImgSize,
+    smallImgSize
+  );
+
+  return canvas.toDataURL('image/jpeg', 0.7);
+};
+
 const downloadImage = (dataUrl, filename) => {
   var link = document.createElement('a');
   link.download = `${filename}.jpg`;
@@ -119,7 +199,9 @@ const downloadImage = (dataUrl, filename) => {
   link.remove();
 };
 
-const drawCroppedImage = (ctx, image, x, y, width, height) => {
+const cropImage = padding => (...params) => drawCroppedImage(...params, padding);
+
+const drawCroppedImage = (ctx, image, x, y, width, height, padding = 0) => {
   if (!image) {
     return;
   }
@@ -143,5 +225,15 @@ const drawCroppedImage = (ctx, image, x, y, width, height) => {
     sy = (originalHeight - cropHeight) / 2;
   }
 
-  return ctx.drawImage(image, sx, sy, cropWidth, cropHeight, x, y, width, height);
+  return ctx.drawImage(
+    image,
+    sx,
+    sy,
+    cropWidth,
+    cropHeight,
+    x + padding,
+    y + padding,
+    width - padding,
+    height - padding
+  );
 };
